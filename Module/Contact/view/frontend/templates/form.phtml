@@ -9,8 +9,7 @@
 ?>
 <?php $viewModel = $block->getViewModel(); ?>
 <?php $subject =  $viewModel->getSubject(); ?>
-<p class="with-gap"><?= $block->escapeHtml(__('Your feedback is important to us, and we\'d like to hear from you. If you have comments or suggestions that can help us improve your experience while visiting our website, you can share your thoughts using the online form below, or by calling us.')); ?></p>
-<?= $block->getChildHtml('call-us'); ?>
+<p class="with-gap"><?= $block->escapeHtml(__('we’ll get back to you as quickly as possible.')); ?></p>
 <form class="form contact"
       action="<?= $block->escapeUrl($block->getFormAction()) ?>"
       id="contact-form"
@@ -72,5 +71,4 @@
         </div>
     </div>
 </form>
-<?= $block->getChildHtml('stores-list'); ?>
 

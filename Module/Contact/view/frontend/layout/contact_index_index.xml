@@ -6,6 +6,9 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
+        <head>
+            <title>Contact Us</title>
+        </head>
         <referenceContainer name="content">
             <referenceBlock name="contactForm" remove="true"/>
             <block class="Magento\Contact\Block\ContactForm" name="contactUsForm" template="Module_Contact::form.phtml">
@@ -32,17 +35,5 @@
                 </argument>
             </action>
         </referenceBlock>
-        <referenceContainer name="contactForm">
-            <block class="Magento\Cms\Block\Block" name="call-us">
-                <arguments>
-                    <argument name="block_id" xsi:type="string">call-us</argument>
-                </arguments>
-            </block>
-            <block class="Magento\Cms\Block\Block" name="stores-list">
-                <arguments>
-                    <argument name="block_id" xsi:type="string">stores-list</argument>
-                </arguments>
-            </block>
-        </referenceContainer>
     </body>
 </page>
