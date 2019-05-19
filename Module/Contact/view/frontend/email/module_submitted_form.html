@@ -1,0 +1,38 @@
+<!--
+/**
+ * @package MODULE\Contact
+ */
+-->
+<!--@subject {{trans "Contact Form"}} @-->
+<!--@vars {
+"var data.comment":"Comment",
+"var data.firstname":"First Name",
+"var data.lastname":"Last Name",
+"var data.email":"Sender Email",
+"var data.subject":"Subject"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<table class="message-details">
+    <tr>
+        <td><strong>{{trans "First Name"}}</strong></td>
+        <td>{{var data.firstname}}</td>
+    </tr>
+    <tr>
+        <td><strong>{{trans "Last Name"}}</strong></td>
+        <td>{{var data.lastname}}</td>
+    </tr>
+    <tr>
+        <td><strong>{{trans "Email"}}</strong></td>
+        <td>{{var data.email}}</td>
+    </tr>
+    <tr>
+        <td><strong>{{trans "Subject"}}</strong></td>
+        <td>{{var data.subject}}</td>
+    </tr>
+</table>
+<p><strong>{{trans "Message"}}</strong></p>
+<p>{{var data.comment}}</p>
+
+{{template config_path="design/email/footer_template"}}

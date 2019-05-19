@@ -1,0 +1,76 @@
+<?php
+/**
+ * Module Contact Template File
+ * @package MODULE\Contact
+ */
+
+// @codingStandardsIgnoreFile
+/** @var \Magento\Contact\Block\ContactForm $block */
+?>
+<?php $viewModel = $block->getViewModel(); ?>
+<?php $subject =  $viewModel->getSubject(); ?>
+<p class="with-gap"><?= $block->escapeHtml(__('Your feedback is important to us, and we\'d like to hear from you. If you have comments or suggestions that can help us improve your experience while visiting our website, you can share your thoughts using the online form below, or by calling us.')); ?></p>
+<?= $block->getChildHtml('call-us'); ?>
+<form class="form contact"
+      action="<?= $block->escapeUrl($block->getFormAction()) ?>"
+      id="contact-form"
+      method="post"
+      data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+      data-mage-init='{"validation":{}}'>
+    <fieldset class="fieldset">
+        <legend class="legend"><span><?= $block->escapeHtml(__('Send Us an Email')) ?></span></legend><br />
+        <?php /** @TODO (for BED): add functionality to First Name, Last Name, Message Subject fields */ ?>
+        <div class="field firstname required">
+            <label class="label" for="firstname"><span><?= $block->escapeHtml(__('First Name')) ?></span></label>
+            <div class="control">
+                <input name="firstname" id="firstname" title="<?= $block->escapeHtmlAttr(__('First Name')) ?>" value="<?= $block->escapeHtmlAttr($this->helper('Magento\Contact\Helper\Data')->getPostValue('firstname')) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
+        <div class="field lastname required">
+            <label class="label" for="lastname"><span><?= $block->escapeHtml(__('Last Name')) ?></span></label>
+            <div class="control">
+                <input name="lastname" id="lastname" title="<?= $block->escapeHtmlAttr(__('Last Name')) ?>" value="<?= $block->escapeHtmlAttr($this->helper('Magento\Contact\Helper\Data')->getPostValue('lastname')) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
+        <div class="field email required">
+            <label class="label" for="email"><span><?= $block->escapeHtml(__('Email')) ?></span></label>
+            <div class="control">
+                <input name="email" id="email" title="<?= $block->escapeHtmlAttr(__('Email')) ?>" value="<?= $block->escapeHtmlAttr($this->helper('Magento\Contact\Helper\Data')->getPostValue('email') ?: $this->helper('Magento\Contact\Helper\Data')->getUserEmail()) ?>" class="input-text" type="email" data-validate="{required:true, 'validate-email':true}"/>
+            </div>
+        </div>
+        <div class="field subject required">
+            <label class="label" for="subject"><span><?= $block->escapeHtml(__('Message Subject')) ?></span></label>
+            <div class="control">
+                <select name="subject" id="subject" class="validate-select">
+                    <?php foreach ($subject as $option): ?>
+                        <?php if ($option['value'] === 0): ?>
+                            <option disabled selected value="<?php /* @noEscape */
+                            echo $option['value'] ?>"><?php /* @noEscape */
+                                echo $option['label'] ?></option>
+                        <?php else: ?>
+                            <option value="<?php /* @noEscape */
+                            echo $option['value'] ?>"><?php /* @noEscape */
+                                echo $option['label'] ?></option>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        </div>
+        <div class="field comment required">
+            <label class="label" for="comment"><span><?= $block->escapeHtml(__('Message')) ?></span></label>
+            <div class="control">
+                <textarea name="comment" id="comment" title="<?= $block->escapeHtmlAttr(__('Message')) ?>" class="input-text" cols="5" rows="3" data-validate="{required:true}"><?= $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getPostValue('comment')) ?></textarea>
+            </div>
+        </div>
+        <?= $block->getChildHtml('form.additional.info') ?>
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" title="<?= $block->escapeHtmlAttr(__('Send Email')) ?>" class="action submit primary">
+                <span><?= $block->escapeHtml(__('Send Email')) ?></span>
+            </button>
+        </div>
+    </div>
+</form>
+<?= $block->getChildHtml('stores-list'); ?>
+

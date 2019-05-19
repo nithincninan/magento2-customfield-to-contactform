@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @package MODULE\Contact
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <referenceBlock name="contactForm" remove="true"/>
+            <block class="Magento\Contact\Block\ContactForm" name="contactUsForm" template="Module_Contact::form.phtml">
+                <container name="form.additional.info" label="Form Additional Info"/>
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Module\Contact\ViewModel\ContactForm</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceBlock name="breadcrumbs">
+            <action method="addCrumb">
+                <argument name="crumbName" xsi:type="string">Home</argument>
+                <argument name="crumbInfo" xsi:type="array">
+                    <item name="title" xsi:type="string">Home</item>
+                    <item name="label" xsi:type="string">Home</item>
+                    <item name="link" xsi:type="string">{{baseUrl}}</item>
+                </argument>
+            </action>
+            <action method="addCrumb">
+                <argument name="crumbName" xsi:type="string">Contact Us</argument>
+                <argument name="crumbInfo" xsi:type="array">
+                    <item name="title" xsi:type="string">Contact Us</item>
+                    <item name="label" xsi:type="string">Contact Us</item>
+                </argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="contactForm">
+            <block class="Magento\Cms\Block\Block" name="call-us">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">call-us</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="stores-list">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">stores-list</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
