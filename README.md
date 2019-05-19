@@ -15,3 +15,23 @@ Magento 2.3 - Add Custom fields to Contact Form.
 
 <b>Module: Module_Contact<br />
 Url: contact/index/index <br />
+    
+Tree:
+```Module
+    └───Contact
+        ├───Controller
+        │   └───Index
+        ├───etc
+        │   └───frontend
+        ├───Model
+        │   └───Config
+        │       └───Source
+        ├───Setup
+        │   └───Patch
+        │       └───Data
+        ├───view
+        │   └───frontend
+        │       ├───email
+        │       ├───layout
+        │       └───templates
+        └───ViewModel```
