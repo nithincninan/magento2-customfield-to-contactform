@@ -35,4 +35,5 @@ Tree:
         │       ├───email
         │       ├───layout
         │       └───templates
-        └───ViewModel```
+        └───ViewModel
+```        
