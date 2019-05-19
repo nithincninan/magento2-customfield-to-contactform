@@ -41,7 +41,7 @@ tree /F
         ├───Setup
         │   └───Patch
         │       └───Data
-        │               CreateFssContactEmail.php
+        │               CreateModuleContactEmail.php
         │
         ├───view
         │   └───frontend
