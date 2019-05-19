@@ -3,8 +3,11 @@
 Magento 2.3 - Add Custom fields to Contact Form.
 
 1. Add Custom Fields:
+
     1.1 FirstName, LastName(Text)
+  
     1.2 Subject(Dropdown)
+    
 2. Added validation for Custom Fields
 3. Override Magento_Contact Controller
 4. Source Model For Dropdown + ViewModel
