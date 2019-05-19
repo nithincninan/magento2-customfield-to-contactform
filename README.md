@@ -1,4 +1,4 @@
-# Magento 2.3 - Add Custom fields to ContactForm(Dropdown,Text) + Custom Contactus Email
+# Magento 2.3 - Add Custom fields to ContactForm (Dropdown,Text) + Custom Contactus Email
 
 Magento 2.3 - Add Custom fields to Contact Form.
 
